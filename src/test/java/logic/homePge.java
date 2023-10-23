@@ -173,5 +173,15 @@ public class homePge extends basePage {
 
         return type;
     }
+
+    public void permission(){
+        MobileElement permi = (MobileElement)waitTillVisible(driver,10,By.id("com.android.permissioncontroller:id/content_container"));
+        MobileElement dontallow = (MobileElement) driver.findElement(By.id("com.android.permissioncontroller:id/permission_deny_button"));
+        dontallow.click();
+        
+        MobileElement notifi= (MobileElement) waitTillVisible(driver, 10, By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout"));
+        MobileElement NotNow= (MobileElement) driver.findElement(By.xpath("//android.widget.TextView[@text=\"Not now\"]"));
+        NotNow.click();
+    }
 }
 
